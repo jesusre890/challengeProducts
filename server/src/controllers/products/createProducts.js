@@ -1,10 +1,10 @@
 const { Products } = require("../../db");
 
-const createdProducts = async (req, res, next) => {
+const createdProducts = async (req, res) => {
   try {
     const { name, description, image_url, price } = req.body;
 
-    // Crear el producto en la base de datos usando el modelo Products
+    // Creo el producto en BD
     const newProduct = await Products.create({
       name,
       description,
@@ -12,9 +12,9 @@ const createdProducts = async (req, res, next) => {
       price,
     });
 
-    res.status(201).json(newProduct); // Devuelve el nuevo producto creado
+    res.status(200).json(newProduct); // Devuelve producto creado
   } catch (error) {
-    next(error); // Pasa el error al siguiente middleware de manejo de errores
+    res.status(500).json({ msg: "Error al crear el producto" });
   }
 };
 
