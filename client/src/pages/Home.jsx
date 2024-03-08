@@ -1,9 +1,9 @@
 import CardItem from "../components/CardItem";
 import axios from "axios";
-import { useMutation, useQuery } from "react-query";
+import { useQuery } from "react-query";
 import Loading from "../components/Loading";
 import Message from "../components/Message";
-import { CiTrash } from "react-icons/ci";
+//import { CiTrash } from "react-icons/ci";
 
 const Home=() => {
   
@@ -20,24 +20,24 @@ const Home=() => {
     data: products,
     isLoading,
     isError,
-    refetch
+    //refetch
   } = useQuery("products", getProducts);
 
-  const deleteProductMutation = useMutation(async (id) => {
-    await axios.delete(`http://localhost:3001/products/${id}`);
-  });
+  //const deleteProductMutation = useMutation(async (id) => {
+  //  await axios.delete(`http://localhost:3001/products/${id}`);
+  //});
 
-  const handleDeleteProduct = async (id) => {
-    try {
-      await deleteProductMutation.mutateAsync(id);
-      const updatedProducts = products.map((product) =>
-        product.id === id ? { ...product, delete: true } : product
-      );
-      refetch(updatedProducts);
-    } catch (error) {
-      console.error("Error al eliminar el producto:", error);
-    }
-  };
+  //const handleDeleteProduct = async (id) => {
+  //  try {
+  //    await deleteProductMutation.mutateAsync(id);
+  //    const updatedProducts = products.map((product) =>
+  //      product.id === id ? { ...product, delete: true } : product
+  //    );
+  //    refetch(updatedProducts);
+  //  } catch (error) {
+  //    console.error("Error al eliminar el producto:", error);
+  //  }
+  //};
 
   return isLoading ? (
     <Loading />
@@ -53,15 +53,14 @@ const Home=() => {
             description={product.description}
             image_url={product.image_url}
             price={product.price}
-            //handleDeleteProduct={handleDeleteProduct(product.id)}
           />
-          <button
+          {/*<button
             onClick={() => {
               handleDeleteProduct(product.id);
             }}
           >
             <CiTrash />
-          </button>
+          </button>*/}
         </li>
       ))}
     </ul>
