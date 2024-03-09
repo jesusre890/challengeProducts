@@ -8,7 +8,7 @@ const CreateProducts=() => {
   
   const createProductMutation = useMutation(async (productData) => {
     const response = await axios.post(
-      "http://localhost:3001/products/",
+      "/products/",
       productData
     );
     return response.data;

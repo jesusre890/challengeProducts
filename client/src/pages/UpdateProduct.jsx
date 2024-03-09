@@ -23,7 +23,7 @@ const UpdateProduct = () => {
       setIsLoading(true);
       try {
         const response = await axios.get(
-          `http://localhost:3001/products/${id}`
+          `/products/${id}`
         );
         setProduct(response.data);
         setName(response.data.name);
@@ -42,7 +42,7 @@ const UpdateProduct = () => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:3001/products/${id}`, {
+      await axios.put(`/products/${id}`, {
         name,
         description,
         image_url,

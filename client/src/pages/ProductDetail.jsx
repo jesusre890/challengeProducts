@@ -17,7 +17,7 @@ const ProductDetail = () => {
       setIsLoading(true);
       try {
         const response = await axios.get(
-          `http://localhost:3001/products/${id}`
+          `/products/${id}`
         );
         setProduct(response.data);
         setIsLoading(false);

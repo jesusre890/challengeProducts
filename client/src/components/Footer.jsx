@@ -5,7 +5,7 @@ const Footer = () => {
     <div className=" px-5">
       <footer className="flex w-full h-44 flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 border-t border-blue-gray-50 py-6 text-center md:justify-between">
         <Typography color="blue-gray" className="font-normal">
-          &copy; 2023 Story Dots
+          &copy; 2024 Story Dots
         </Typography>
         <ul className="flex flex-wrap items-center gap-y-2 gap-x-8">
           <li>

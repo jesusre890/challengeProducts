@@ -9,7 +9,7 @@ const Home=() => {
   
   const getProducts = async () => {
     try {
-      const response = await axios.get("http://localhost:3001/products/");
+      const response = await axios.get("/products/");
       return response.data;
     } catch (error) {
       throw new Error("Error al obtener los productos");
@@ -24,7 +24,7 @@ const Home=() => {
   } = useQuery("products", getProducts);
 
   //const deleteProductMutation = useMutation(async (id) => {
-  //  await axios.delete(`http://localhost:3001/products/${id}`);
+  //  await axios.delete(`/products/${id}`);
   //});
 
   //const handleDeleteProduct = async (id) => {
