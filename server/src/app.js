@@ -10,8 +10,11 @@ const app=express();
 
 const { DEPLOY_FRONT } =
   process.env;
-
-app.use(cors());
+const corsOptions = {
+  origin: [DEPLOY_FRONT],
+  optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(morgan("dev"));
