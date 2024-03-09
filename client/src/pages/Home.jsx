@@ -9,7 +9,7 @@ const Home=() => {
   
   const getProducts = async () => {
     try {
-      const response = await axios.get("/products/");
+      const response = await axios.get("/products");
       return response.data;
     } catch (error) {
       throw new Error("Error al obtener los productos");
