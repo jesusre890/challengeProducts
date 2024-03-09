@@ -5,8 +5,7 @@ import Loading from "../components/Loading";
 import Message from "../components/Message";
 //import { CiTrash } from "react-icons/ci";
 
-const Home=() => {
-  
+const Home = () => {
   const getProducts = async () => {
     try {
       const response = await axios.get("/products");
@@ -20,7 +19,7 @@ const Home=() => {
     data: products,
     isLoading,
     isError,
-    refetch
+    refetch,
   } = useQuery("products", getProducts);
 
   const deleteProductMutation = useMutation(async (id) => {
@@ -37,24 +36,34 @@ const Home=() => {
   };
 
   return isLoading ? (
-    <Loading />
-  )  : isError ? (
-    <Message />
+    <div className="flex justify-center items-center my-44">
+      <Loading />
+    </div>
+  ) : isError ? (
+    <div className="flex justify-center items-center my-44">
+      <Message />
+    </div>
+  ) : products.length > 0 ? (
+
+      <ul className="grid grid-cols-1 justify-center md:grid-cols-2 lg:grid-cols-3 gap-7 my-14">
+        {products.map((product) => (
+          <li key={product.id} className="flex justify-center">
+            <CardItem
+              id={product.id}
+              name={product.name}
+              description={product.description}
+              image_url={product.image_url}
+              price={product.price}
+              handleDeleteProduct={handleDeleteProduct}
+            />
+          </li>
+        ))}
+      </ul>
+
   ) : (
-    <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 my-10">
-      {products.map((product) => (
-        <li key={product.id} className="flex justify-center mx-4">
-          <CardItem
-            id={product.id}
-            name={product.name}
-            description={product.description}
-            image_url={product.image_url}
-            price={product.price}
-            handleDeleteProduct={handleDeleteProduct}
-          />
-        </li>
-      ))}
-    </ul>
+    <p className="flex justify-center my-44">
+      No hay productos. Por favor cree uno
+    </p>
   );
 };
 

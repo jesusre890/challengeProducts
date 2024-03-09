@@ -1,18 +1,17 @@
 const express = require("express");
 const morgan = require("morgan");
-const cors=require("cors");
-const bodyParser = require("body-parser"); 
+const cors = require("cors");
+const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-const mainRouter=require("./routes/mainRouter");
+const mainRouter = require("./routes/mainRouter");
 require("dotenv").config();
 
-const app=express();
+const app = express();
 
-const { DEPLOY_FRONT } =
-  process.env;
+const { DEPLOY_FRONT } = process.env;
 const corsOptions = {
   origin: [DEPLOY_FRONT],
-  optionsSuccessStatus: 200
+  optionsSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
