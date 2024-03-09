@@ -43,15 +43,15 @@ const ProductDetail = () => {
             alt={product.name}
           />
         </div>
-        <Card placeholder={undefined} className="w-96 m-auto">
-          <List placeholder={undefined}>
+        <Card className="w-96 m-auto">
+          <List>
             <h1 className="text-4xl font-medium">{product?.name}</h1>
 
-            <ListItem placeholder={undefined}>
+            <ListItem>
               Precio: ${product.price}
             </ListItem>
 
-            <ListItem placeholder={undefined}>{product.description}</ListItem>
+            <ListItem>{product.description}</ListItem>
           </List>
         </Card>
       </div>

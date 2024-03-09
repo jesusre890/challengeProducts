@@ -11,7 +11,7 @@ const app=express();
 const { DEPLOY_FRONT } =
   process.env;
 const corsOptions = {
-  origin: [DEPLOY_FRONT],
+  origin: [DEPLOY_FRONT, "http://localhost:5173"],
   optionsSuccessStatus: 200
 };
 app.use(cors(corsOptions));
@@ -20,6 +20,7 @@ app.use(cookieParser());
 app.use(morgan("dev"));
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", DEPLOY_FRONT); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Origin", "http://localhost:5173"); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Credentials", "true");
   res.header(
     "Access-Control-Allow-Headers",
