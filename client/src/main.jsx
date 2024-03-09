@@ -16,8 +16,8 @@ import CreateProducts from "./pages/CreateProducts.jsx";
 import ProductDetail from "./pages/ProductDetail.jsx";
 import UpdateProduct from "./pages/UpdateProduct.jsx";
 import axios from "axios";
-//axios.defaults.baseURL = "https://challengeproducts-production.up.railway.app";
-axios.defaults.baseURL = "http://localhost:3001";
+axios.defaults.baseURL = "https://challengeproducts-production.up.railway.app";
+//axios.defaults.baseURL = "http://localhost:3001";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

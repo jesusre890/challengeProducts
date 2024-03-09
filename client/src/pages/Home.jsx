@@ -38,7 +38,7 @@ const Home=() => {
 
   return isLoading ? (
     <Loading />
-  ) : isError ? (
+  )  : isError ? (
     <Message />
   ) : (
     <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 my-10">
@@ -52,13 +52,6 @@ const Home=() => {
             price={product.price}
             handleDeleteProduct={handleDeleteProduct}
           />
-          {/*<button
-            onClick={() => {
-              handleDeleteProduct(product.id);
-            }}
-          >
-            <CiTrash />
-          </button>*/}
         </li>
       ))}
     </ul>
