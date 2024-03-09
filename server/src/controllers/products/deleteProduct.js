@@ -10,7 +10,6 @@ const deleteProduct = async (req, res) => {
       return res.status(404).json({ msg: "Producto no encontrado" });
     }
 
-    // pasa a estar el estado en eliminado
     product.delete = true;
 
     await product.save();
@@ -21,4 +20,4 @@ const deleteProduct = async (req, res) => {
   }
 };
 
-module.exports = deleteProduct
+module.exports = deleteProduct;

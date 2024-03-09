@@ -4,7 +4,8 @@ const fs = require("fs");
 const path = require("path");
 const { log } = require("console");
 
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME, DB_DEPLOY } = process.env;
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME, DB_DEPLOY } =
+  process.env;
 
 const sequelize = new Sequelize(
   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`,
@@ -30,7 +31,7 @@ fs.readdirSync(path.join(__dirname, "/models"))
   });
 
 // Creamos un objeto para almacenar los modelos y sus asociaciones
-const models={};
+const models = {};
 
 // Injectamos la conexion (sequelize) a todos los modelos llamando a las funciones en el arreglo modelDefiners
 modelDefiners.forEach((model) => {
@@ -43,12 +44,11 @@ let capsEntries = entries.map((entry) => [
   entry[0][0].toUpperCase() + entry[0].slice(1),
   entry[1],
 ]);
-sequelize.models=Object.fromEntries(capsEntries);
+sequelize.models = Object.fromEntries(capsEntries);
 
-const { Products }=models;
+const { Products } = models;
 
 //* Relaciones************************************************
-
 
 module.exports = {
   ...models,
