@@ -16,7 +16,7 @@ import CreateProducts from "./pages/CreateProducts.jsx";
 import ProductDetail from "./pages/ProductDetail.jsx";
 import UpdateProduct from "./pages/UpdateProduct.jsx";
 import axios from "axios";
-axios.defaults.baseURL = import.meta.env.VITE_API;
+axios.defaults.baseURL = import.meta.env.VITE_APP_API;
 
 const router = createBrowserRouter(
   createRoutesFromElements(
